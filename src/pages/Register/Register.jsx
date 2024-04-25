@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
-  const { createUser, updateUserData, setLoader } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -21,10 +21,21 @@ const Register = () => {
   const onSubmit = data => {
     const { email, password, name, photo } = data;
 
+    const userData = { email, name, photo };
+    console.log(userData);
+
     createUser(email, password)
       .then(result => {
+        fetch('http://localhost:5000/user', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(userData),
+        })
+          .then(res => res.json())
+          .then(data => console.log(data));
         const user = result.user;
-        updateUserData(name, photo, email);
         if (user) {
           toast.success('Account created successfully');
           setTimeout(() => {
@@ -33,8 +44,7 @@ const Register = () => {
         }
       })
       .catch(error => {
-        console.log(error.code);
-        setLoader(false);
+        console.log(error);
         if (error.code === 'auth/invalid-email') {
           setError(true);
         }
