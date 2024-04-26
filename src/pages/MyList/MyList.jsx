@@ -3,6 +3,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { MdDeleteForever } from 'react-icons/md';
 import { MdSystemUpdateAlt } from 'react-icons/md';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyList = () => {
   const { user } = useContext(AuthContext) || {};
@@ -93,10 +94,13 @@ const MyList = () => {
                     Delete
                     <MdDeleteForever />
                   </button>
-                  <button className="btn btn-success">
+                  <Link
+                    to={`/updateSpotDetails/${item._id}`}
+                    className="btn btn-success"
+                  >
                     Update
                     <MdSystemUpdateAlt />
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}
