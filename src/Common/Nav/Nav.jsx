@@ -1,7 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Nav = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  console.log(user);
+
   const links = (
     <>
       <li>
@@ -66,15 +71,24 @@ const Nav = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">TourTrekker</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <Link to={'/login'} className="btn">
-            Login
-          </Link>
+          {user ? (
+            <button onClick={() => logOut()}>Logout</button>
+          ) : (
+            <div>
+              <Link to={'/login'} className="btn">
+                Login
+              </Link>
+              <Link to={'/register'} className="btn">
+                Sign Up
+              </Link>
+            </div>
+          )}
           <label className="cursor-pointer grid place-items-center">
             <input
               type="checkbox"

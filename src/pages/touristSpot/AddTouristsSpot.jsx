@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AddTouristsSpot = () => {
+  const { user } = useContext(AuthContext);
+
   const handleAddSpot = e => {
     e.preventDefault();
     const form = e.target;
@@ -36,7 +39,9 @@ const AddTouristsSpot = () => {
         'content-type': 'application/json',
       },
       body: JSON.stringify(addedSpot),
-    });
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
   };
 
   return (
@@ -61,6 +66,8 @@ const AddTouristsSpot = () => {
           <input
             type="email"
             name="email"
+            defaultValue={user?.email}
+            disabled
             placeholder="Your Email"
             className="input input-bordered"
             required
@@ -92,16 +99,20 @@ const AddTouristsSpot = () => {
             />
           </div>
           <div className="form-control">
-            <label className="label">
-              <span className="label-text">Country Name</span>
+            <label className="form-control w-full">
+              <div className="label">
+                <span className="label-text">Country Name</span>
+              </div>
+              <select className="select select-bordered" name="country_name">
+                <option defaultValue={'Pick one'}>Pick one</option>
+                <option>Bangladesh</option>
+                <option>Thailand</option>
+                <option>Indonesia</option>
+                <option>Vietnam</option>
+                <option>Cambodia</option>
+                <option>Malaysia</option>
+              </select>
             </label>
-            <input
-              type="text"
-              name="country_name"
-              placeholder="Country Name"
-              className="input input-bordered"
-              required
-            />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-6">
