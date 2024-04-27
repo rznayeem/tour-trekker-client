@@ -1,4 +1,5 @@
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateSpotDetails = () => {
   const data = useLoaderData();
@@ -49,7 +50,17 @@ const UpdateSpotDetails = () => {
       body: JSON.stringify(updatedData),
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
 
   return (
