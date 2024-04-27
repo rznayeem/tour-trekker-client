@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Nav = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, loader } = useContext(AuthContext);
 
   console.log(user);
 
@@ -77,8 +77,23 @@ const Nav = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          {user ? (
-            <button onClick={() => logOut()}>Logout</button>
+          {loader ? (
+            <div className="flex gap-4 items-center">
+              <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+              <div className="flex flex-col gap-4">
+                <div className="skeleton h-4 w-20"></div>
+                <div className="skeleton h-4 w-28"></div>
+              </div>
+            </div>
+          ) : user ? (
+            <div>
+              <div className="avatar">
+                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                </div>
+              </div>
+              <button onClick={() => logOut()}>Logout</button>
+            </div>
           ) : (
             <div>
               <Link to={'/login'} className="btn">
