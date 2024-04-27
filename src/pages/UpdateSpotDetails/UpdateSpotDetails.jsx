@@ -4,6 +4,7 @@ const UpdateSpotDetails = () => {
   const data = useLoaderData();
 
   const {
+    _id,
     photo,
     spot_name,
     country_name,
@@ -28,7 +29,7 @@ const UpdateSpotDetails = () => {
     const travel_time = form.travel_time.value;
     const visitors = form.visitors.value;
 
-    const addedSpot = {
+    const updatedData = {
       photo,
       spot_name,
       country_name,
@@ -39,13 +40,13 @@ const UpdateSpotDetails = () => {
       travel_time,
       visitors,
     };
-    console.log(addedSpot);
-    fetch('http://localhost:5000/touristsSpot', {
-      method: 'POST',
+    console.log(updatedData);
+    fetch(`http://localhost:5000/allTouristsSpot/${_id}`, {
+      method: 'PATCH',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify(addedSpot),
+      body: JSON.stringify(updatedData),
     })
       .then(res => res.json())
       .then(data => console.log(data));
