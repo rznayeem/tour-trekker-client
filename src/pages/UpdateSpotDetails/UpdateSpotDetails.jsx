@@ -25,7 +25,7 @@ const UpdateSpotDetails = () => {
     const country_name = form.country_name.value;
     const location = form.location.value;
     const description = form.description.value;
-    const cost = form.cost.value;
+    const cost = parseFloat(form.cost.value);
     const seasonality = form.seasonality.value;
     const travel_time = form.travel_time.value;
     const visitors = form.visitors.value;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const AddTouristsSpot = () => {
@@ -14,7 +14,7 @@ const AddTouristsSpot = () => {
     const country_name = form.country_name.value;
     const location = form.location.value;
     const description = form.description.value;
-    const cost = form.cost.value;
+    const cost = parseFloat(form.cost.value);
     const seasonality = form.seasonality.value;
     const travel_time = form.travel_time.value;
     const visitors = form.visitors.value;
@@ -103,8 +103,12 @@ const AddTouristsSpot = () => {
               <div className="label">
                 <span className="label-text">Country Name</span>
               </div>
-              <select className="select select-bordered" name="country_name">
-                <option defaultValue={'Pick one'}>Pick one</option>
+              <select
+                className="select select-bordered"
+                name="country_name"
+                required
+              >
+                <option>Pick one</option>
                 <option>Bangladesh</option>
                 <option>Thailand</option>
                 <option>Indonesia</option>
