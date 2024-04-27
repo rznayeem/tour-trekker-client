@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserData } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -36,6 +36,7 @@ const Register = () => {
           .then(res => res.json())
           .then(data => console.log(data));
         const user = result.user;
+        updateUserData(name, photo, email);
         if (user) {
           toast.success('Account created successfully');
           setTimeout(() => {

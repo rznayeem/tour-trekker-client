@@ -86,13 +86,31 @@ const Nav = () => {
               </div>
             </div>
           ) : user ? (
-            <div>
-              <div className="avatar">
-                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            <div className="dropdown dropdown-hover">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn m-1 w-auto h-auto bg-transparent rounded-full border-none shadow-none hover:bg-transparent"
+              >
+                <div>
+                  <div className="avatar">
+                    <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                      <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    </div>
+                  </div>
                 </div>
               </div>
-              <button onClick={() => logOut()}>Logout</button>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <h3>{user?.displayName || 'N/A'}</h3>
+                </li>
+                <li>
+                  <button onClick={() => logOut()}>Logout</button>
+                </li>
+              </ul>
             </div>
           ) : (
             <div>

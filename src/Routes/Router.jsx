@@ -9,6 +9,7 @@ import Register from '../pages/Register/Register';
 import ViewDetails from '../pages/ViewDetails/ViewDetails';
 import UpdateSpotDetails from '../pages/UpdateSpotDetails/UpdateSpotDetails';
 import DestinationDetails from '../pages/DestinationDetails/DestinationDetails';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/add_tourists_spot',
-        element: <AddTouristsSpot></AddTouristsSpot>,
+        element: (
+          <PrivateRoute>
+            <AddTouristsSpot></AddTouristsSpot>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/my_list',
-        element: <MyList></MyList>,
+        element: (
+          <PrivateRoute>
+            <MyList></MyList>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/updateSpotDetails/:id',

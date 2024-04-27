@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const AddTouristsSpot = () => {
@@ -67,7 +67,6 @@ const AddTouristsSpot = () => {
             type="email"
             name="email"
             defaultValue={user?.email}
-            disabled
             placeholder="Your Email"
             className="input input-bordered"
             required

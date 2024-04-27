@@ -1,67 +1,43 @@
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/css';
-// import 'swiper/css/free-mode';
-// import 'swiper/css/navigation';
-// import 'swiper/css/thumbs';
-
-// import './styles.css';
-
-// // import required modules
-// import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-// import { useState } from 'react';
+import { Carousel } from 'flowbite-react';
 
 const Banner = () => {
   return (
-    <div className="carousel w-full h-[92vh]">
-      <div id="slide1" className="carousel-item relative w-full">
-        <img src="https://i.ibb.co/r2hjMCh/banner1.jpg" className="w-full" />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide4" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide2" className="btn btn-circle">
-            ❯
-          </a>
+    <div
+      className="bg-[#2D2330] text-[#FFFFFF]"
+      style={{
+        backgroundImage: `url('https://i.imgur.com/KcT0t7W.png')`,
+      }}
+    >
+      <div className="container mx-auto h-[90vh] flex justify-between items-center gap-14">
+        <div className="space-y-7">
+          <h1 className="text-5xl font-extrabold">
+            Let’s plan your trip with
+            <br />
+            TourTrekker
+          </h1>
+          <p>
+            Discover amzaing places at exclusive deals. Eat, Shop, Visit
+            interesting places around the world.
+          </p>
         </div>
-      </div>
-      <div id="slide2" className="carousel-item relative w-full">
-        <img
-          src="https://i.ibb.co/NthQThd/luxury-house-mgayhrm416op3g3r.jpg"
-          className="w-full"
-        />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide1" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide3" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide3" className="carousel-item relative w-full">
-        <img src="https://i.ibb.co/t28By2J/829688.jpg" className="w-full" />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide2" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide4" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide4" className="carousel-item relative w-full">
-        <img
-          src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
-          className="w-full"
-        />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide3" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide1" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
+
+        <Carousel className="w-[50vw] h-[80vh]" slideInterval={3000}>
+          <img
+            className="h-full"
+            src="https://i.ibb.co/60qBR5Z/mario-la-pergola-WTGV6q-BOzro-unsplash.jpg"
+            alt="..."
+          />
+          <img
+            className="h-full"
+            src="https://i.ibb.co/nrhjFQS/lewis-j-goetz-p3zbb3-Efczw-unsplash-1.jpg"
+            alt="..."
+          />
+          <img
+            className=" h-full"
+            src="https://i.ibb.co/VvwKq1h/humphrey-muleba-Tej-Fa7-VW5e4-unsplash-1.jpg"
+            alt="..."
+          />
+        </Carousel>
       </div>
     </div>
   );

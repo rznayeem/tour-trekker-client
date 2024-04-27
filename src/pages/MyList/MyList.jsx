@@ -9,6 +9,7 @@ const MyList = () => {
   const { user } = useContext(AuthContext) || {};
 
   const [myTouristsSpot, setMyTouristsSpot] = useState([]);
+  console.log(myTouristsSpot);
 
   useEffect(() => {
     fetch(`http://localhost:5000/myList/${user?.email}`)
