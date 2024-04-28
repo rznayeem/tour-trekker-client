@@ -1,5 +1,6 @@
-import Banner from '../../components/Banner';
+import Banner from '../../components/Banner/Banner';
 import Destinations from '../../components/Destinations/Destinations';
+import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
 import TouristsSpots from '../../components/cards/TouristsSpots';
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner></Banner>
       <TouristsSpots></TouristsSpots>
       <Destinations></Destinations>
+      <WhyChooseUs></WhyChooseUs>
     </div>
   );
 };
