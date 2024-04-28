@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaArrowUpRightFromSquare, FaLocationDot } from 'react-icons/fa6';
 
 const TouristsSpots = () => {
   const [touristsSpots, setTouristsSpots] = useState([]);
@@ -31,7 +32,7 @@ const TouristsSpots = () => {
         backgroundSize: 'cover',
       }}
     >
-      <div className="text-center space-y-7">
+      <div className="text-center space-y-7 mb-6">
         <h1 className="text-4xl font-bold">Tourists Spots</h1>
         <p>
           Lose yourself in the tranquil beauty of Bali&apos;s pristine beaches,
@@ -43,12 +44,25 @@ const TouristsSpots = () => {
       <div className=" flex items-center">
         <div className="container mx-auto">
           <Swiper
-            slidesPerView={4}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 50,
+              },
+            }}
             spaceBetween={30}
             freeMode={true}
             autoplay={{
               delay: 2500,
-              disableOnInteraction: false,
+              disableOnInteraction: true,
             }}
             pagination={{
               clickable: true,
@@ -60,12 +74,15 @@ const TouristsSpots = () => {
               {touristsSpots.map((touristsSpot, idx) => (
                 <SwiperSlide key={idx}>
                   <div className="card bg-[#E9E9E9] shadow-xl  overflow-hidden">
-                    <figure className="m-6 rounded-2xl">
+                    <figure className="relative m-6 rounded-2xl">
                       <img
                         className=" w-full md:h-[214px] lg:h-[290px] object-cover transition duration-300 ease-in-out hover:scale-110"
                         src={touristsSpot.photo}
                         alt=""
                       />
+                      <h3 className="absolute text-xs py-3 px-5 rounded-full text-white bg-black top-3 left-3 border">
+                        ${touristsSpot.cost} /{touristsSpot.travel_time}
+                      </h3>
                     </figure>
                     <div
                       className="card-body"
@@ -76,14 +93,18 @@ const TouristsSpots = () => {
                       }}
                     >
                       <h2 className="card-title">{touristsSpot.spot_name}</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
+                      <p className="flex items-center gap-4 text-[#FF5956]">
+                        <FaLocationDot /> {touristsSpot.location}
+                      </p>
+                      <p>Best time for visit: {touristsSpot.seasonality}</p>
                       <Link
                         to={`/viewDetails/${touristsSpot._id}`}
-                        className="card-actions justify-end"
+                        className="rounded-2xl btn mt-5 hover:bg-[#FF5956] text-[#FF5956] hover:text-white font-semibold px-9 py-6 h-auto w-auto min-h-0 bg-transparent border border-[#FF5956] duration-300"
                       >
-                        <button className="btn btn-primary">
-                          View Details
-                        </button>
+                        View Details{' '}
+                        <span>
+                          <FaArrowUpRightFromSquare />
+                        </span>
                       </Link>
                     </div>
                   </div>

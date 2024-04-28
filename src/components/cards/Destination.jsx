@@ -5,7 +5,7 @@ const Destination = ({ destination }) => {
 
   return (
     <Link to={`/DestinationDetails/${country_name}`}>
-      <div className="group relative cursor-pointer w-[400px] h-[270px] rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-black/30 transition-shadow">
+      <div className="group relative cursor-pointer lg:w-[400px] h-[270px] rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-black/30 transition-shadow">
         <img
           className="w-[400px] h-[270px] rounded-2xl group-hover:scale-125 transition-transform duration-500"
           src={photo}

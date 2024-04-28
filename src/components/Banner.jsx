@@ -1,4 +1,9 @@
-import { Carousel } from 'flowbite-react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const Banner = () => {
   return (
@@ -8,7 +13,7 @@ const Banner = () => {
         backgroundImage: `url('https://i.imgur.com/KcT0t7W.png')`,
       }}
     >
-      <div className="container mx-auto h-[90vh] flex justify-between items-center gap-14">
+      <div className="container mx-auto lg:h-[90vh] flex flex-col-reverse md:flex-row justify-between items-center gap-14">
         <div className="space-y-7">
           <h1 className="text-5xl font-extrabold">
             Let’s plan your trip with
@@ -20,24 +25,37 @@ const Banner = () => {
             interesting places around the world.
           </p>
         </div>
-
-        <Carousel className="w-[50vw] h-[80vh]" slideInterval={3000}>
-          <img
-            className="h-full"
-            src="https://i.ibb.co/60qBR5Z/mario-la-pergola-WTGV6q-BOzro-unsplash.jpg"
-            alt="..."
-          />
-          <img
-            className="h-full"
-            src="https://i.ibb.co/nrhjFQS/lewis-j-goetz-p3zbb3-Efczw-unsplash-1.jpg"
-            alt="..."
-          />
-          <img
-            className=" h-full"
-            src="https://i.ibb.co/VvwKq1h/humphrey-muleba-Tej-Fa7-VW5e4-unsplash-1.jpg"
-            alt="..."
-          />
-        </Carousel>
+        <Swiper
+          loop={true}
+          navigation={true}
+          modules={[Navigation, Autoplay]}
+          autoplay={true}
+          className="mySwiper w-[90vw] lg:w-[50vw] lg:h-[80vh] rounded-2xl object-cover"
+        >
+          <SwiperSlide className="h-full">
+            <div className="h-full object-cover">
+              <img
+                className="h-[260px] lg:h-[100%]"
+                src="https://i.ibb.co/60qBR5Z/mario-la-pergola-WTGV6q-BOzro-unsplash.jpg"
+                alt="..."
+              />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              className="h-[260px] lg:h-[100%]"
+              src="https://i.ibb.co/nrhjFQS/lewis-j-goetz-p3zbb3-Efczw-unsplash-1.jpg"
+              alt="..."
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              className="h-[260px] lg:h-[100%]"
+              src="https://i.ibb.co/VvwKq1h/humphrey-muleba-Tej-Fa7-VW5e4-unsplash-1.jpg"
+              alt="..."
+            />
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   );

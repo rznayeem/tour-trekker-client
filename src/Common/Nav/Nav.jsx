@@ -5,7 +5,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 const Nav = () => {
   const { user, logOut, loader } = useContext(AuthContext);
 
-  console.log(user);
+  console.log(user?.photoURL);
 
   const links = (
     <>
@@ -76,52 +76,7 @@ const Nav = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end">
-          {loader ? (
-            <div className="flex gap-4 items-center">
-              <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
-              <div className="flex flex-col gap-4">
-                <div className="skeleton h-4 w-20"></div>
-                <div className="skeleton h-4 w-28"></div>
-              </div>
-            </div>
-          ) : user ? (
-            <div className="dropdown dropdown-hover">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn m-1 w-auto h-auto bg-transparent rounded-full border-none shadow-none hover:bg-transparent"
-              >
-                <div>
-                  <div className="avatar">
-                    <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                      <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <ul
-                tabIndex={0}
-                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <h3>{user?.displayName || 'N/A'}</h3>
-                </li>
-                <li>
-                  <button onClick={() => logOut()}>Logout</button>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <div>
-              <Link to={'/login'} className="btn">
-                Login
-              </Link>
-              <Link to={'/register'} className="btn">
-                Sign Up
-              </Link>
-            </div>
-          )}
+        <div className="navbar-end gap-6">
           <label className="cursor-pointer grid place-items-center">
             <input
               type="checkbox"
@@ -159,6 +114,64 @@ const Nav = () => {
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           </label>
+          {loader ? (
+            <div className="flex gap-4 items-center">
+              <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+              <div className="flex flex-col gap-4">
+                <div className="skeleton h-4 w-20"></div>
+                <div className="skeleton h-4 w-28"></div>
+              </div>
+            </div>
+          ) : user ? (
+            <div className="dropdown dropdown-hover dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn m-1 w-auto h-auto bg-transparent rounded-full border-none shadow-none hover:bg-transparent"
+              >
+                <div>
+                  <div className="avatar">
+                    <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                      <img
+                        src={
+                          user?.photoURL ||
+                          'https://i.ibb.co/wMhfdTN/user-profile-icon.png'
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[100] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <h3>{user?.displayName || 'N/A'}</h3>
+                </li>
+                <li>
+                  <Link to={'/login'} onClick={() => logOut()}>
+                    Logout
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div>
+              <Link
+                to={'/register'}
+                className="btn w-auto h-auto bg-transparent hover:text-[#FF5956] border-none shadow-none hover:bg-transparent mr-6 text-[16px] font-semibold duration-300"
+              >
+                Sign Up
+              </Link>
+              <Link
+                to={'/login'}
+                className="btn rounded-full w-auto h-auto min-h-0 hover:bg-[#2D2330] bg-[#FF5956] text-white font-semibold px-6 py-4 text-[16px] duration-500"
+              >
+                Log in
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -1,13 +1,19 @@
 import { useLoaderData } from 'react-router-dom';
+import DestinationDetailsCards from '../../components/cards/DestinationDetailsCards';
 
 const DestinationDetails = () => {
-  const loaderData = useLoaderData();
+  const countrySpots = useLoaderData();
 
   return (
-    <div>
-      {loaderData.map(item => (
-        <p>{item.name}</p>
-      ))}
+    <div className="py-20">
+      <div className="space-y-6">
+        {countrySpots.map(countrySpot => (
+          <DestinationDetailsCards
+            key={countrySpot._id}
+            countrySpot={countrySpot}
+          ></DestinationDetailsCards>
+        ))}
+      </div>
     </div>
   );
 };
