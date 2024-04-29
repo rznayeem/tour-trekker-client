@@ -9,16 +9,16 @@ const Nav = () => {
 
   const links = (
     <>
-      <li>
+      <li className="btn h-auto w-auto bg-transparent border-none shadow-none hover:bg-transparent hover:text-[#FF5956] text-xl font-medium">
         <NavLink to={'/'}>Home</NavLink>
       </li>
-      <li>
+      <li className="btn h-auto w-auto bg-transparent border-none shadow-none hover:bg-transparent hover:text-[#FF5956] text-xl font-medium">
         <NavLink to={'/all_tourists_spot'}>All Tourists Spot</NavLink>
       </li>
-      <li>
+      <li className="btn h-auto w-auto bg-transparent border-none shadow-none hover:bg-transparent hover:text-[#FF5956] text-xl font-medium">
         <NavLink to={'/add_tourists_spot'}>Add Tourists Spot</NavLink>
       </li>
-      <li>
+      <li className="btn h-auto w-auto bg-transparent border-none shadow-none hover:bg-transparent hover:text-[#FF5956] text-xl font-medium">
         <NavLink to={'/my_list'}>My LIst</NavLink>
       </li>
     </>
@@ -45,7 +45,7 @@ const Nav = () => {
 
   return (
     <div>
-      <div className="navbar container mx-auto">
+      <div className="navbar container mx-auto my-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,15 +66,26 @@ const Nav = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52"
+              data-aos="zoom-in"
             >
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">TourTrekker</a>
+          <Link to={'/'} className="btn btn-ghost text-xl" data-aos="zoom-in">
+            Tour
+            <span className="text-[#FF5956] text-2xl font-semibold">
+              Trekker
+            </span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <ul
+            className=" text-xl font-medium bg-transparent flex items-center"
+            data-aos="zoom-in"
+          >
+            {links}
+          </ul>
         </div>
         <div className="navbar-end gap-6">
           <label className="cursor-pointer grid place-items-center">
@@ -131,7 +142,7 @@ const Nav = () => {
               >
                 <div>
                   <div className="avatar">
-                    <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <div className="w-10 rounded-full ring ring-[#FF5956] ring-offset-base-100 ring-offset-2">
                       <img
                         src={
                           user?.photoURL ||

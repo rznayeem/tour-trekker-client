@@ -1,8 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import reactLight from '../../assets/Rect-Light.svg';
 import colorLine from '../../assets/Contour-Line.svg';
-// import shineLight from '../../assets/Shiny-Overlay.svg';
-// import curveLight from '../../assets/Curve-Line.svg';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
@@ -13,6 +11,7 @@ import { FaArrowUpRightFromSquare, FaLocationDot } from 'react-icons/fa6';
 
 const TouristsSpots = () => {
   const [touristsSpots, setTouristsSpots] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     fetch(
@@ -21,8 +20,9 @@ const TouristsSpots = () => {
       .then(res => res.json())
       .then(data => {
         setTouristsSpots(data);
+        setLoader(false);
       });
-  }, []);
+  }, [setLoader]);
 
   return (
     <div
@@ -43,7 +43,43 @@ const TouristsSpots = () => {
           rich cultural heritage.
         </p>
       </div>
-      <div className=" flex items-center">
+      {loader && (
+        <div className="container mx-auto flex flex-col lg:flex-row justify-around gap-6">
+          <div className="flex flex-col gap-4 h-[634px] w-full">
+            <div className="skeleton h-[290px] w-full"></div>
+            <div className="skeleton h-4 w-28"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+          </div>
+          <div className="flex flex-col gap-4 h-[634px] w-full">
+            <div className="skeleton h-[290px] w-full"></div>
+            <div className="skeleton h-4 w-28"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+          </div>
+          <div className="flex flex-col gap-4 h-[634px] w-full">
+            <div className="skeleton h-[290px] w-full"></div>
+            <div className="skeleton h-4 w-28"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+          </div>
+          <div className="flex flex-col gap-4 h-[634px] w-full">
+            <div className="skeleton h-[290px] w-full"></div>
+            <div className="skeleton h-4 w-28"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+          </div>
+        </div>
+      )}
+      <div className=" flex items-center" data-aos="fade-up">
         <div className="container mx-auto">
           <Swiper
             breakpoints={{
@@ -72,7 +108,7 @@ const TouristsSpots = () => {
             modules={[Autoplay, FreeMode, Pagination]}
             className="mySwiper"
           >
-            <div>
+            <div data-aos="fade-up">
               {touristsSpots.map((touristsSpot, idx) => (
                 <SwiperSlide key={idx}>
                   <div className="card bg-[#E9E9E9] shadow-xl  overflow-hidden">

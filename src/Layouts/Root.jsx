@@ -2,18 +2,21 @@ import { Outlet } from 'react-router-dom';
 import Nav from '../Common/Nav/Nav';
 import Footer from '../Common/Footer/Footer';
 import { useEffect } from 'react';
-import Aos from 'aos';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Root = () => {
   useEffect(() => {
-    Aos.init();
+    AOS.init();
   }, []);
 
   return (
     <>
-      <Nav></Nav>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <div className="font-recursive">
+        <Nav></Nav>
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </div>
     </>
   );
 };
