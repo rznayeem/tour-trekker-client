@@ -9,11 +9,15 @@ const AllTouristsSpot = () => {
 
   const handleSort = sort => {
     if (sort == 'asc') {
-      fetch('http://localhost:5000/allTouristsSpot/asc')
+      fetch(
+        'https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot/asc'
+      )
         .then(res => res.json())
         .then(data => setAscData(data));
     } else if (sort == 'dsc') {
-      fetch('http://localhost:5000/allTouristsSpot/dsc')
+      fetch(
+        'https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot/dsc'
+      )
         .then(res => res.json())
         .then(data => setAscData(data));
     } else {

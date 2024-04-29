@@ -23,7 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/all_tourists_spot',
         element: <AllTouristsSpot></AllTouristsSpot>,
-        loader: () => fetch('http://localhost:5000/allTouristsSpot'),
+        loader: () =>
+          fetch(
+            'https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot'
+          ),
       },
       {
         path: '/add_tourists_spot',
@@ -45,7 +48,9 @@ const router = createBrowserRouter([
         path: '/updateSpotDetails/:id',
         element: <UpdateSpotDetails></UpdateSpotDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allTouristsSpot/${params.id}`),
+          fetch(
+            `https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot/${params.id}`
+          ),
       },
       {
         path: '/login',
@@ -59,13 +64,17 @@ const router = createBrowserRouter([
         path: '/viewDetails/:id',
         element: <ViewDetails></ViewDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allTouristsSpot/${params.id}`),
+          fetch(
+            `https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot/${params.id}`
+          ),
       },
       {
         path: '/DestinationDetails/:country_name',
         element: <DestinationDetails></DestinationDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/destinations/${params.country_name}`),
+          fetch(
+            `https://assignment-10-tour-trekker-server-side.vercel.app/destinations/${params.country_name}`
+          ),
       },
     ],
   },

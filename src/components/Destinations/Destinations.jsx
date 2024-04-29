@@ -5,7 +5,7 @@ const Destinations = () => {
   const [destinations, setDestinations] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/category')
+    fetch('https://assignment-10-tour-trekker-server-side.vercel.app/category')
       .then(res => res.json())
       .then(data => setDestinations(data));
   }, []);

@@ -33,13 +33,16 @@ const AddTouristsSpot = () => {
       visitors,
     };
     console.log(addedSpot);
-    fetch('http://localhost:5000/touristsSpot', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(addedSpot),
-    })
+    fetch(
+      'https://assignment-10-tour-trekker-server-side.vercel.app/touristsSpot',
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(addedSpot),
+      }
+    )
       .then(res => res.json())
       .then(data => console.log(data));
   };

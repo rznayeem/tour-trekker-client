@@ -12,7 +12,9 @@ const MyList = () => {
   console.log(myTouristsSpot);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myList/${user?.email}`)
+    fetch(
+      `https://assignment-10-tour-trekker-server-side.vercel.app/myList/${user?.email}`
+    )
       .then(res => res.json())
       .then(data => {
         setMyTouristsSpot(data);
@@ -30,9 +32,12 @@ const MyList = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/allTouristsSpot/${id}`, {
-          method: 'DELETE',
-        })
+        fetch(
+          `https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot/${id}`,
+          {
+            method: 'DELETE',
+          }
+        )
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {

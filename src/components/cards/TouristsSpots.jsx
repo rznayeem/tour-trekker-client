@@ -15,7 +15,9 @@ const TouristsSpots = () => {
   const [touristsSpots, setTouristsSpots] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/touristsSpot')
+    fetch(
+      'https://assignment-10-tour-trekker-server-side.vercel.app/touristsSpot'
+    )
       .then(res => res.json())
       .then(data => {
         setTouristsSpots(data);

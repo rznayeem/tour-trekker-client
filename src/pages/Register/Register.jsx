@@ -26,13 +26,16 @@ const Register = () => {
 
     createUser(email, password)
       .then(result => {
-        fetch('http://localhost:5000/user', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify(userData),
-        })
+        fetch(
+          'https://assignment-10-tour-trekker-server-side.vercel.app/user',
+          {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+          }
+        )
           .then(res => res.json())
           .then(data => console.log(data));
         const user = result.user;

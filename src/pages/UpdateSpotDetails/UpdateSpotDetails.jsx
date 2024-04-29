@@ -42,13 +42,16 @@ const UpdateSpotDetails = () => {
       visitors,
     };
     console.log(updatedData);
-    fetch(`http://localhost:5000/allTouristsSpot/${_id}`, {
-      method: 'PATCH',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(updatedData),
-    })
+    fetch(
+      `https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot/${_id}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+      }
+    )
       .then(res => res.json())
       .then(data => {
         if (data.modifiedCount > 0) {
