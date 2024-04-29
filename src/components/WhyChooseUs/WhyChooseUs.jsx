@@ -1,17 +1,18 @@
+import { Fade } from 'react-awesome-reveal';
 import { FaMapLocationDot } from 'react-icons/fa6';
 import { GiCommercialAirplane } from 'react-icons/gi';
 
 const WhyChooseUs = () => {
   return (
-    <div className="flex">
-      <div className="w-1/2">
+    <div className="flex flex-col lg:flex-row">
+      <div className="lg:w-1/2">
         <img
           src="https://i.ibb.co/nrhjFQS/lewis-j-goetz-p3zbb3-Efczw-unsplash-1.jpg"
           alt=""
         />
       </div>
       <div
-        className="w-1/2 bg-[#313041] relative"
+        className="lg:w-1/2 bg-[#313041] relative"
         // style={{
         //   backgroundImage: `url('https://tevily-html.vercel.app/assets/images/shapes/why-choose-right-map.png')`,
         //   backgroundRepeat: 'no-repeat',
@@ -24,9 +25,11 @@ const WhyChooseUs = () => {
             alt=""
           />
         </div>
-        <div className="text-white flex h-full lg:ml-24 items-center">
+        <div className="text-white flex h-full lg:ml-24 items-center m-5 lg:m-0">
           <div className="space-y-8">
-            <h1 className="text-5xl font-bold">Why Choose TourTrekker</h1>
+            <Fade>
+              <h1 className="text-5xl font-bold">Why Choose TourTrekker</h1>
+            </Fade>
             <p className="text-[#9594A2]">
               There are many variations of passages of Lorem Ipsum is simply
               free text available <br /> in the market for you, but the majority

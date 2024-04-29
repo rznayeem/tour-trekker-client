@@ -35,8 +35,10 @@ const TouristsSpots = () => {
       }}
     >
       <div className="text-center space-y-7 mb-6">
-        <h1 className="text-4xl font-bold">Tourists Spots</h1>
-        <p>
+        <h1 className="text-4xl font-bold animate__animated animate__fadeInRight">
+          Tourists Spots
+        </h1>
+        <p className="animate__animated animate__fadeInLeft">
           Lose yourself in the tranquil beauty of Bali&apos;s pristine beaches,
           where azure waters meet golden sands. Dive into vibrant coral <br />
           reefs, trek through lush rice terraces, and discover the island&apos;s

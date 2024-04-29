@@ -21,10 +21,10 @@ const DestinationDetailsCards = ({ countrySpot }) => {
   return (
     <div>
       <div className="mx-auto container border rounded-2xl">
-        <div className="flex gap-6 m-5">
-          <img className="w-[30%] rounded-2xl" src={photo} alt="" />
-          <div className="flex flex-1">
-            <div className="w-[60%] flex flex-col">
+        <div className="flex flex-col lg:flex-row gap-6 m-5">
+          <img className="lg:w-[30%] rounded-2xl" src={photo} alt="" />
+          <div className="flex flex-col lg:flex-row flex-1">
+            <div className="lg:w-[60%] flex flex-col">
               <div className="space-y-6">
                 <div className="flex justify-between">
                   <h1 className="text-2xl font-bold">{spot_name}</h1>
@@ -53,8 +53,8 @@ const DestinationDetailsCards = ({ countrySpot }) => {
                 </p>
               </div>
             </div>
-            <div className="inline-block mx-5 min-h-[1em] w-0.5 self-stretch bg-neutral-500  opacity-100 dark:opacity-100"></div>
-            <div className="w-[40%] flex flex-col justify-between py-10">
+            <div className=" hidden lg:inline-block mx-5 min-h-[1em] w-0.5 self-stretch bg-neutral-500  opacity-100 dark:opacity-100"></div>
+            <div className="lg:w-[40%] flex flex-col justify-between py-10">
               <p className="flex justify-center items-center gap-6 text-center">
                 <FaRegClock /> <span>{travel_time}</span>
               </p>

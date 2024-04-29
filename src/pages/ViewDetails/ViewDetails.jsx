@@ -28,12 +28,12 @@ const ViewDetails = () => {
         src={photo}
         alt=""
       />
-      <div className="flex justify-between p-10 rounded-3xl bg-[#FAF5EE] mt-10">
+      <div className="flex flex-col lg:flex-row justify-between p-10 rounded-3xl bg-[#FAF5EE] mt-10">
         <div>
           <h1 className="text-2xl font-semibold">Spot Name: {spot_name}</h1>
           <p>Cost: {cost}</p>
         </div>
-        <div className="flex items-center gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 items-center gap-8">
           <div className="flex items-center gap-5">
             <FaRegClock className="text-[#FF5956] text-4xl" />
             <div>
@@ -65,8 +65,8 @@ const ViewDetails = () => {
         </div>
       </div>
       <div>
-        <div className="flex justify-around mt-10">
-          <div className="w-[60%]">
+        <div className="flex flex-col lg:flex-row justify-around mt-10">
+          <div className="lg:w-[60%]">
             <h1 className="text-2xl font-semibold">Tour Description</h1>
             <div className="flex gap-12">
               <h3>Country: {country_name}</h3>
@@ -74,7 +74,7 @@ const ViewDetails = () => {
             </div>
             <p>{description}</p>
           </div>
-          <div className="card shrink-0 w-[30%] shadow-2xl p-6 bg-base-100">
+          <div className="card shrink-0 lg:w-[30%] shadow-2xl p-6 bg-base-100">
             <form className="">
               <legend className="text-center">Book Now</legend>
               <div className="form-control">

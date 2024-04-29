@@ -4,10 +4,11 @@ import Footer from '../Common/Footer/Footer';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import 'animate.css';
 
 const Root = () => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({ disable: 'mobile' });
   }, []);
 
   return (

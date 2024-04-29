@@ -70,6 +70,22 @@ const Nav = () => {
               data-aos="zoom-in"
             >
               {links}
+              {!user && (
+                <li className="lg:hidden flex-col items-center justify-center">
+                  <Link
+                    to={'/register'}
+                    className="btn w-auto ml-5 h-auto bg-transparent hover:text-[#FF5956] border-none shadow-none hover:bg-transparent mr-6 text-[16px] font-semibold duration-300"
+                  >
+                    Sign Up
+                  </Link>
+                  <Link
+                    to={'/login'}
+                    className="btn rounded-full w-auto h-auto min-h-0 hover:bg-[#2D2330] bg-[#FF5956] text-white font-semibold px-6 py-4 text-[16px] duration-500"
+                  >
+                    Log in
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
           <Link to={'/'} className="btn btn-ghost text-xl" data-aos="zoom-in">
@@ -168,7 +184,7 @@ const Nav = () => {
               </ul>
             </div>
           ) : (
-            <div>
+            <div className="hidden lg:flex">
               <Link
                 to={'/register'}
                 className="btn w-auto h-auto bg-transparent hover:text-[#FF5956] border-none shadow-none hover:bg-transparent mr-6 text-[16px] font-semibold duration-300"
