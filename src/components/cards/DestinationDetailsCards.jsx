@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { CiLocationOn } from 'react-icons/ci';
 import { FaCheck, FaRegClock } from 'react-icons/fa';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import { SlTag } from 'react-icons/sl';
@@ -37,6 +38,10 @@ const DestinationDetailsCards = ({ countrySpot }) => {
                   Best time for visit: {seasonality}
                 </p>
                 <p className="">{description}</p>
+                <p className="flex items-center gap-3">
+                  <CiLocationOn className="text-[#FF5956] text-xl font-semibold" />{' '}
+                  {location}
+                </p>
               </div>
               <div className="mt-auto flex justify-center gap-6">
                 <p className="flex items-center gap-3 text-[#FF5956]">

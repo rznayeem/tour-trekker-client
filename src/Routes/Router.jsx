@@ -10,11 +10,13 @@ import ViewDetails from '../pages/ViewDetails/ViewDetails';
 import UpdateSpotDetails from '../pages/UpdateSpotDetails/UpdateSpotDetails';
 import DestinationDetails from '../pages/DestinationDetails/DestinationDetails';
 import PrivateRoute from './PrivateRoute';
+import Error from '../pages/Error/Error';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',
