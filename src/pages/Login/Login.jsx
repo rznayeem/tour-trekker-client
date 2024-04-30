@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash, FaGithub } from 'react-icons/fa';
+import Lottie from 'lottie-react';
+import login from '../../assets/login.json';
 
 const Login = () => {
   const { signIn, googleLogin, githubLogin, setLoader } =
@@ -74,10 +76,19 @@ const Login = () => {
 
   return (
     <div>
-      <div className="hero bg-base-200">
-        <div className="container lg:h-[90vh] my-20 mx-auto flex flex-col lg:flex-row-reverse">
-          <div className="lg:w-[40%]  animate__animated animate__slideInRight w-full content-center p-8 rounded-xl space-y-3 border bg-[#EE465E] font-sans mx-auto">
-            <h1 className="text-3xl font-bold text-center text-white">Login</h1>
+      <div className="hero ">
+        <div className="container bg-[#F9F4EE] rounded-xl lg:h-[90vh] my-20 mx-auto flex flex-col lg:flex-row-reverse">
+          <div className="text-center  animate__animated animate__slideInLeft lg:rounded-r-xl lg:w-[60%] lg:text-left">
+            <div className="text-center pt-12">
+              <h1 className="text-3xl font-bold pb-4">Welcome Back !</h1>
+              <p>Thank you for being with us. Please log in!</p>
+            </div>
+            <div className="w-[70%] mx-auto">
+              <Lottie animationData={login} />
+            </div>
+          </div>
+          <div className="lg:w-[40%]  animate__animated animate__slideInRight w-full content-center p-8 rounded-xl space-y-3 font-sans mx-auto">
+            <h1 className="text-3xl font-bold text-center ">Login</h1>
 
             {/* Input fields and the form started */}
 
@@ -129,7 +140,7 @@ const Login = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-[#8DA6E8] text-white text-xl">
+                  <button className="btn bg-[#FF5956] text-white text-xl">
                     Login
                   </button>
                 </div>
@@ -138,7 +149,7 @@ const Login = () => {
 
             <div className="flex items-center pt-4 space-x-2">
               <div className="flex-1 h-px bg-gray-300"></div>
-              <p className="text-sm text-white">Login with social accounts</p>
+              <p className="text-sm ">Login with social accounts</p>
               <div className="flex-1 h-px bg-gray-300"></div>
             </div>
 
@@ -149,11 +160,11 @@ const Login = () => {
                 onClick={handleGoogleLogin}
                 className="mx-auto border cursor-pointer flex h-[50px] w-[200px] items-center overflow-hidden rounded-full shadow-md duration-300 hover:scale-95 hover:shadow"
               >
-                <div className="flex h-full w-[50%] items-center bg-[#8EA7E9] pl-4 text-sm text-white">
+                <div className="flex h-full w-[50%] items-center bg-[#FF5956] pl-4 text-sm text-white">
                   Sign With
                 </div>
-                <span className="right-0 top-0 h-0 w-0 -rotate-90 border-b-[50px] border-r-[50px] border-b-transparent border-r-[#8EA7E9] group-hover:hidden"></span>
-                <span className="pr-4 text-4xl font-bold text-[#8EA7E9]">
+                <span className="right-0 top-0 h-0 w-0 -rotate-90 border-b-[50px] border-r-[50px] border-b-transparent border-r-[#FF5956] group-hover:hidden"></span>
+                <span className="pr-4 text-4xl font-bold text-[#FF5956]">
                   G+
                 </span>
               </div>
@@ -161,16 +172,16 @@ const Login = () => {
                 onClick={handleGithubLogin}
                 className="mx-auto border cursor-pointer flex h-[50px] w-[200px] items-center overflow-hidden rounded-full shadow-md duration-300 hover:scale-95 hover:shadow"
               >
-                <div className="flex h-full w-[50%] items-center bg-[#8EA7E9] pl-4 text-sm text-white">
+                <div className="flex h-full w-[50%] items-center bg-[#FF5956] pl-4 text-sm text-white">
                   Sign With
                 </div>
-                <span className="right-0 top-0 h-0 w-0 -rotate-90 border-b-[50px] border-r-[50px] border-b-transparent border-r-[#8EA7E9] group-hover:hidden"></span>
-                <span className="pr-4 text-4xl font-bold text-[#8EA7E9]">
+                <span className="right-0 top-0 h-0 w-0 -rotate-90 border-b-[50px] border-r-[50px] border-b-transparent border-r-[#FF5956] group-hover:hidden"></span>
+                <span className="pr-4 text-4xl font-bold text-[#FF5956]">
                   <FaGithub />
                 </span>
               </div>
             </div>
-            <p className=" text-white text-center gap-2 flex justify-center sm:px-6 ">
+            <p className="text-center gap-2 flex justify-center sm:px-6 ">
               Don&apos;t have an account?
               <Link
                 to={'/register'}

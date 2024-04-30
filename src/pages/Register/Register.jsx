@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Lottie from 'lottie-react';
+import registerLottie from '../../assets/register.json';
 
 const Register = () => {
   const { createUser, updateUserData } = useContext(AuthContext);
@@ -59,8 +61,19 @@ const Register = () => {
     <div>
       <div className="hero bg-base-200">
         <div className="container lg:h-[90vh] my-20 mx-auto flex flex-col lg:flex-row">
-          <div className="lg:w-[40%] w-full  animate__animated animate__slideInLeft p-8 rounded-xl space-y-3 border content-center bg-[#EE465E] font-sans mx-auto">
-            <h1 className="text-3xl font-bold text-center text-white">
+          <div className="text-center animate__animated animate__slideInRight lg:rounded-l-xl lg:w-[60%] lg:text-left bg-[#F9F4EE]">
+            <div className="text-center pt-12">
+              <h1 className="text-3xl font-bold pb-4">Join with us !</h1>
+              <p>
+                To keep connected with us please provide your personal info .
+              </p>
+            </div>
+            <div className="w-[70%] mx-auto">
+              <Lottie animationData={registerLottie} />
+            </div>
+          </div>
+          <div className="lg:w-[40%] w-full  animate__animated animate__slideInLeft p-8 rounded-r-xl space-y-3 content-center bg-[#F9F4EE] font-sans mx-auto">
+            <h1 className="text-3xl font-bold text-center">
               Create your account
             </h1>
 
@@ -155,14 +168,14 @@ const Register = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-[#8DA6E8] text-white text-xl">
+                  <button className="btn bg-[#FF5956] text-white text-xl">
                     Register
                   </button>
                 </div>
               </form>
             </div>
 
-            <p className="text-white text-center gap-2 flex justify-center sm:px-6 ">
+            <p className="text-center gap-2 flex justify-center sm:px-6 ">
               Already have an account?
               <Link
                 to={'/login'}
