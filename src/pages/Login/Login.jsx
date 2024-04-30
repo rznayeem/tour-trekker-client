@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash, FaGithub } from 'react-icons/fa';
 import Lottie from 'lottie-react';
 import login from '../../assets/login.json';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
   const { signIn, googleLogin, githubLogin, setLoader } =
@@ -76,6 +77,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Tour Trekker | Login - get connected with us</title>
+      </Helmet>
       <div className="hero ">
         <div className="container bg-[#F9F4EE] rounded-xl lg:h-[90vh] my-20 mx-auto flex flex-col lg:flex-row-reverse">
           <div className="text-center  animate__animated animate__slideInLeft lg:rounded-r-xl lg:w-[60%] lg:text-left">

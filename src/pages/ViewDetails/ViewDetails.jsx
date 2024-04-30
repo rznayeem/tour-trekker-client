@@ -3,6 +3,7 @@ import { FaRegClock } from 'react-icons/fa';
 import { CgProfile } from 'react-icons/cg';
 import { GiCommercialAirplane } from 'react-icons/gi';
 import { CiLocationOn } from 'react-icons/ci';
+import { Helmet } from 'react-helmet';
 
 const ViewDetails = () => {
   const spotData = useLoaderData();
@@ -23,6 +24,9 @@ const ViewDetails = () => {
 
   return (
     <div className="container  mx-auto">
+      <Helmet>
+        <title>Tour Trekker | Details of {spot_name}</title>
+      </Helmet>
       <img
         className="rounded-3xl max-h-[60vh] w-full object-cover"
         src={photo}
@@ -83,6 +87,7 @@ const ViewDetails = () => {
                 </label>
                 <input
                   type="text"
+                  defaultValue={name}
                   placeholder="Your Name"
                   className="input input-bordered"
                   required
@@ -95,12 +100,13 @@ const ViewDetails = () => {
                 <input
                   type="email"
                   placeholder="Your email"
+                  defaultValue={email}
                   className="input input-bordered"
                   required
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Book</button>
+                <button className="btn bg-[#FF5956]">Book</button>
               </div>
             </form>
           </div>

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import Banner from '../../components/Banner/Banner';
 import Destinations from '../../components/Destinations/Destinations';
 import Testimonial from '../../components/Testimonial/Testimonial';
@@ -7,6 +8,9 @@ import TouristsSpots from '../../components/cards/TouristsSpots';
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Tour Trekker | Home</title>
+      </Helmet>
       <Banner></Banner>
       <TouristsSpots></TouristsSpots>
       <Destinations></Destinations>

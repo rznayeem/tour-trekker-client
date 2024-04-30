@@ -1,6 +1,7 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AddTouristsSpot = () => {
   const { user } = useContext(AuthContext);
@@ -60,13 +61,16 @@ const AddTouristsSpot = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Tour Trekker | Add your desired spot</title>
+      </Helmet>
       <form onSubmit={handleAddSpot} className="card-body md:w-1/2 mx-auto">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Photo Url</span>
           </label>
           <input
-            type="text"
+            type="url"
             name="photo"
             placeholder="Put Photo url of the spot"
             className="input input-bordered"
@@ -164,7 +168,7 @@ const AddTouristsSpot = () => {
               <span className="label-text">Average Cost</span>
             </label>
             <input
-              type="text"
+              type="number"
               name="cost"
               placeholder="Average Cost"
               className="input input-bordered"

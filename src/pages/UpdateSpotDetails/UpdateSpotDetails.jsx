@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -68,13 +69,16 @@ const UpdateSpotDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Tour Trekker | Update your spot</title>
+      </Helmet>
       <form onSubmit={handleUpdateSpot} className="card-body md:w-1/2 mx-auto">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Photo Url</span>
           </label>
           <input
-            type="text"
+            type="url"
             name="photo"
             defaultValue={photo}
             placeholder="Put Photo url of the spot"
@@ -148,7 +152,7 @@ const UpdateSpotDetails = () => {
               <span className="label-text">Average Cost</span>
             </label>
             <input
-              type="text"
+              type="number"
               name="cost"
               defaultValue={cost}
               placeholder="Average Cost"

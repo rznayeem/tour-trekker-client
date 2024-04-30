@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Lottie from 'lottie-react';
 import registerLottie from '../../assets/register.json';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
   const { createUser, updateUserData } = useContext(AuthContext);
@@ -59,6 +60,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Tour Trekker | Create Your Account</title>
+      </Helmet>
       <div className="hero bg-base-200">
         <div className="container lg:h-[90vh] my-20 mx-auto flex flex-col lg:flex-row">
           <div className="text-center animate__animated animate__slideInRight lg:rounded-l-xl lg:w-[60%] lg:text-left bg-[#F9F4EE]">

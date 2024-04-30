@@ -4,6 +4,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import { MdSystemUpdateAlt } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const MyList = () => {
   const { user } = useContext(AuthContext) || {};
@@ -56,6 +57,9 @@ const MyList = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Tour Trekker | Your List</title>
+      </Helmet>
       <div className="container h-[90vh] pt-20 mx-auto relative overflow-x-auto sm:rounded-lg">
         <table className="table">
           <thead>

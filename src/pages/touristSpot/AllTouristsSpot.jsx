@@ -1,7 +1,7 @@
-import { useLoaderData } from 'react-router-dom';
 import AllTouristsSpotCard from '../../components/cards/AllTouristsSpotCard';
 import { useEffect, useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 
 const AllTouristsSpot = () => {
   const [loader, setLoader] = useState(true);
@@ -50,6 +50,9 @@ const AllTouristsSpot = () => {
 
   return (
     <div className="lg:py-20 m-5 lg:m-0">
+      <Helmet>
+        <title>Tour Trekker | All tourists spots</title>
+      </Helmet>
       <div className="container mx-auto ">
         <Fade direction="left">
           <h1 className="text-3xl font-bold">Explore all our famous spot</h1>
