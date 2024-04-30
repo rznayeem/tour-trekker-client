@@ -31,9 +31,10 @@ const WhyChooseUs = () => {
               <h1 className="text-5xl font-bold">Why Choose TourTrekker</h1>
             </Fade>
             <p className="text-[#9594A2]">
-              There are many variations of passages of Lorem Ipsum is simply
-              free text available <br /> in the market for you, but the majority
-              have suffered alteration in some form.
+              Our team consists of passionate locals who know the ins and outs
+              of our destinations like the back of their hand. From hidden gems
+              to iconic landmarks, we offer insider knowledge that ensures an
+              authentic and unforgettable experience.
             </p>
             <div className="flex items-center gap-3">
               <GiCommercialAirplane className="text-6xl text-[#FF5956]" />
