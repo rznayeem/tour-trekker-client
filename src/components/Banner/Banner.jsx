@@ -47,8 +47,8 @@ const Banner = () => {
             autoplay={true}
             className="mySwiper w-[90vw] lg:w-full rounded-2xl object-cover"
           >
-            <SwiperSlide className="h-full">
-              <div className="h-full object-cover">
+            <SwiperSlide className="">
+              <div className="">
                 <img
                   className="h-[260px] lg:h-[560px]"
                   src="https://i.ibb.co/60qBR5Z/mario-la-pergola-WTGV6q-BOzro-unsplash.jpg"
@@ -65,7 +65,7 @@ const Banner = () => {
             </SwiperSlide>
             <SwiperSlide>
               <img
-                className="h-[260px] lg:h-[560px]"
+                className="h-[260px] lg:h-[560px] w-full"
                 src="https://i.ibb.co/VvwKq1h/humphrey-muleba-Tej-Fa7-VW5e4-unsplash-1.jpg"
                 alt="..."
               />
