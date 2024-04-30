@@ -25,10 +25,6 @@ const router = createBrowserRouter([
       {
         path: '/all_tourists_spot',
         element: <AllTouristsSpot></AllTouristsSpot>,
-        loader: () =>
-          fetch(
-            'https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot'
-          ),
       },
       {
         path: '/add_tourists_spot',

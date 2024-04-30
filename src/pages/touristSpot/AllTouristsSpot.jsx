@@ -1,11 +1,27 @@
 import { useLoaderData } from 'react-router-dom';
 import AllTouristsSpotCard from '../../components/cards/AllTouristsSpotCard';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Fade } from 'react-awesome-reveal';
 
 const AllTouristsSpot = () => {
-  const allSpotsData = useLoaderData();
+  const [loader, setLoader] = useState(true);
+  // const allSpotsData = useLoaderData();
 
-  const [ascData, setAscData] = useState(allSpotsData);
+  const [spotData, setSpotData] = useState([]);
+
+  const [displayData, setDisplayData] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      'https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot'
+    )
+      .then(res => res.json())
+      .then(data => {
+        setSpotData(data);
+        setDisplayData(data);
+        setLoader(false);
+      });
+  }, []);
 
   const handleSort = sort => {
     if (sort == 'asc') {
@@ -13,24 +29,33 @@ const AllTouristsSpot = () => {
         'https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot/asc'
       )
         .then(res => res.json())
-        .then(data => setAscData(data));
+        .then(data => {
+          setDisplayData(data);
+          setLoader(false);
+        });
     } else if (sort == 'dsc') {
       fetch(
         'https://assignment-10-tour-trekker-server-side.vercel.app/allTouristsSpot/dsc'
       )
         .then(res => res.json())
-        .then(data => setAscData(data));
+        .then(data => {
+          setDisplayData(data);
+          setLoader(false);
+        });
     } else {
-      setAscData(allSpotsData);
+      setDisplayData(spotData);
+      setLoader(false);
     }
   };
 
   return (
-    <div className="py-20">
+    <div className="lg:py-20 m-5 lg:m-0">
       <div className="container mx-auto ">
-        <h1 className="text-3xl font-bold">Explore all our famous spot</h1>
+        <Fade direction="left">
+          <h1 className="text-3xl font-bold">Explore all our famous spot</h1>
+        </Fade>
         <div className="flex justify-between items-center">
-          <p>{allSpotsData.length} results</p>
+          <p>{displayData.length} results</p>
           <div className="mb-10 flex gap-6 items-center max-w-[250px]">
             <h1>Sort By:</h1>
             <form className="max-w-sm mx-auto">
@@ -46,8 +71,63 @@ const AllTouristsSpot = () => {
             </form>
           </div>
         </div>
-        <div className="space-y-6">
-          {ascData.map((allSpotData, idx) => (
+        {loader && (
+          <div className="space-y-6">
+            <div className="flex flex-col lg:flex-row gap-4 w-full">
+              <div className="skeleton h-[250px] w-full"></div>
+              <div className="flex flex-col gap-7 w-full">
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+              </div>
+              <div className="flex flex-col gap-7 w-full">
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+              </div>
+            </div>
+            <div className="flex flex-col lg:flex-row gap-4 w-full">
+              <div className="skeleton h-[250px] w-full"></div>
+              <div className="flex flex-col gap-7 w-full">
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+              </div>
+              <div className="flex flex-col gap-7 w-full">
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+              </div>
+            </div>
+            <div className="flex flex-col lg:flex-row gap-4 w-full">
+              <div className="skeleton h-[250px] w-full"></div>
+              <div className="flex flex-col gap-7 w-full">
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+              </div>
+              <div className="flex flex-col gap-7 w-full">
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+                <div className="skeleton h-4 w-full"></div>
+              </div>
+            </div>
+          </div>
+        )}
+        <div className="space-y-6 ">
+          {displayData.map((allSpotData, idx) => (
             <AllTouristsSpotCard
               key={idx}
               allSpotData={allSpotData}

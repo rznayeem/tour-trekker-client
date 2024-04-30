@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FaRegClock } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
@@ -21,9 +22,15 @@ const AllTouristsSpotCard = ({ allSpotData }) => {
   } = allSpotData;
 
   return (
-    <div className="mx-auto border rounded-2xl">
+    <div className="mx-auto border rounded-2xl " data-aos="fade-up">
       <div className="flex flex-col lg:flex-row gap-6 m-5">
-        <img className="lg:w-[30%] rounded-2xl" src={photo} alt="" />
+        <div className="lg:w-[30%] overflow-hidden  rounded-2xl">
+          <img
+            className=" object-cover transition duration-300 ease-in-out hover:scale-110"
+            src={photo}
+            alt=""
+          />
+        </div>
         <div className="flex flex-col lg:flex-row flex-1">
           <div className="lg:w-[60%] flex flex-col">
             <div className="space-y-6">
@@ -80,6 +87,23 @@ const AllTouristsSpotCard = ({ allSpotData }) => {
       </div>
     </div>
   );
+};
+
+AllTouristsSpotCard.propTypes = {
+  allSpotData: PropTypes.shape({
+    _id: PropTypes.any,
+    cost: PropTypes.any,
+    country_name: PropTypes.any,
+    description: PropTypes.any,
+    email: PropTypes.any,
+    location: PropTypes.any,
+    name: PropTypes.any,
+    photo: PropTypes.any,
+    seasonality: PropTypes.any,
+    spot_name: PropTypes.any,
+    travel_time: PropTypes.any,
+    visitors: PropTypes.any,
+  }),
 };
 
 export default AllTouristsSpotCard;

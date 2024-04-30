@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddTouristsSpot = () => {
   const { user } = useContext(AuthContext);
@@ -44,7 +45,17 @@ const AddTouristsSpot = () => {
       }
     )
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.acknowledged) {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
 
   return (
