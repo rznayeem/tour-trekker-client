@@ -8,7 +8,7 @@ import 'animate.css';
 
 const Root = () => {
   useEffect(() => {
-    AOS.init({ disable: 'mobile' });
+    AOS.init();
   }, []);
 
   return (
