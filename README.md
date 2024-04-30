@@ -1,6 +1,6 @@
 # Tour Trekker
 
-[Live-Link:prime-palace.web.app](https://tour-trekker.web.app/)
+[Live-Link:https://tour-trekker.web.app/](https://tour-trekker.web.app/)
 
 - This is a website of Travel agency company that helps people to explore the
   world.
