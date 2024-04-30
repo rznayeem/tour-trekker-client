@@ -1,8 +1,23 @@
-# React + Vite
+# Tour Trekker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live-Link:prime-palace.web.app](https://tour-trekker.web.app/)
 
-Currently, two official plugins are available:
+- This is a website of Travel agency company that helps people to explore the
+  world.
+- Here users'll get beautiful places around the world.
+- User can view details of the spots that they like.
+- User can create accounts with email-password, google or github and they can
+  interact with use.
+- User can add more tourist spots if they like and they can update their spot
+  details later.
+- user can see their added spot list at my list section.
+- user can delete their added spots if they want.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+\*Npm packages that I used :
+
+- a. Lottie React
+- b. React-simple-typewriter
+- c. React Awesome reveal
+- d. Animate.css
+- e. aos animation
+- f. react hook form
