@@ -12,8 +12,7 @@ Tour Trekker is a website designed for a travel agency that aims to inspire and 
   interact with use.
 - User can add more tourist spots if they like and they can update their spot
   details later.
-- user can see their added spot list at my list section.
-- user can delete their added spots if they want.
+- user can see their added spot list at my list section & delete their added spots if they want.
 
 ## Technologies Used
 
