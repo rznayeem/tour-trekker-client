@@ -13,6 +13,12 @@
 - user can see their added spot list at my list section.
 - user can delete their added spots if they want.
 
+## Technologies Used
+
+- Frontend: React.js, JavaScript, HTML5, CSS3, Tailwind CSS
+- Backend: Node.js, Express.js
+- Database: MongoDB
+
 \*Npm packages that I used :
 
 - a. Lottie React
