@@ -8,10 +8,6 @@ Tour Trekker is a website designed for a travel agency that aims to inspire and 
 
 ## Features
 
-- This is a website of Travel agency company that helps people to explore the
-  world.
-- Here users'll get beautiful places around the world.
-- User can view details of the spots that they like.
 - User can create accounts with email-password, google or github and they can
   interact with use.
 - User can add more tourist spots if they like and they can update their spot
